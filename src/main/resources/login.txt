@@ -1,0 +1,3 @@
+c,c,c@gmail.com,7777777777,CUSTOMER,yes
+a,a,a@gmail.com,8888888888,ADMIN,yes
+e,e,e@gmail.com,9999999999,EMPLOYEE,yes

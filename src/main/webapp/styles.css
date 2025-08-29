@@ -1,0 +1,1562 @@
+/* PNGO 248 Modern Green & White Theme */
+:root {
+  --primary: #38B000;
+  --primary-dark: #006400;
+  --accent: #70E000;
+  --background: #f8faf8;
+  --surface: #fff;
+  --text: #222;
+  --text-light: #666;
+  --border: #e0e0e0;
+  --shadow: 0 2px 12px rgba(0, 75, 35, 0.08);
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.main-nav {
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  padding: 1.2rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 2px;
+}
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+.nav-links a:hover, .nav-links a:focus {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.tab-navigation {
+  display: flex;
+  gap: 1.5rem;
+  margin: 2.5rem 0 1.5rem 0;
+  justify-content: center;
+}
+.tab {
+  padding: 0.8rem 2.5rem;
+  background: #e8f5e9;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 1.1rem;
+  transition: background 0.2s, color 0.2s;
+  border: none;
+  outline: none;
+}
+.tab.active {
+  background: var(--surface);
+  color: var(--primary-dark);
+  border-bottom: 3px solid var(--primary);
+}
+
+.product-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: flex-start;
+}
+.product-box {
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  min-width: 220px;
+  max-width: 260px;
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.product-box:hover {
+  box-shadow: 0 4px 24px rgba(46,204,64,0.13);
+  transform: translateY(-4px) scale(1.03);
+}
+.product-box h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-dark);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.product-box .price {
+  color: var(--primary);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+.product-box .quantity {
+  font-size: 0.98rem;
+  color: var(--text-light);
+  margin-bottom: 1.2rem;
+}
+.add-to-cart-btn {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 1px 4px rgba(46,204,64,0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+  margin-top: auto;
+}
+.add-to-cart-btn:hover {
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+  box-shadow: 0 2px 8px rgba(46,204,64,0.13);
+}
+
+.error-message {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+  border-radius: 6px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  box-shadow: 0 1px 4px rgba(198,40,40,0.07);
+}
+
+#cart-form {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .product-boxes {
+    flex-direction: column;
+    align-items: center;
+  }
+  .product-box {
+    max-width: 100%;
+    width: 100%;
+  }
+  .container {
+    padding: 0 0.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .tab-navigation {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+.order-status-paid {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* Order Table Styles */
+.order-section {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  margin-top: 2rem;
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+}
+
+.order-table th,
+.order-table td {
+  padding: 1rem 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.order-table th {
+  background-color: var(--accent);
+  color: var(--primary-dark);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.order-table tbody tr:nth-child(even) {
+  background-color: var(--background);
+}
+
+.order-table tbody tr:hover {
+  background-color: #e8f5e9; /* A slightly different shade for hover */
+}
+
+.order-table td {
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.order-table td:first-child {
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Login Page Styles */
+.form-container {
+  background: var(--surface);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  max-width: 450px;
+  margin: 3rem auto;
+}
+
+.form-container h1 {
+  color: var(--primary-dark);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label,
+label[for="password"],
+label[for="role"] {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--text-light);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.form-input,
+input[type="text"],
+input[type="password"],
+select#role {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 1rem;
+  color: var(--text);
+  background-color: var(--background);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+select#role:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(46, 204, 64, 0.2);
+}
+
+.password-input-container {
+  position: relative;
+}
+
+.btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.9rem 1.8rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  text-align: center;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(46,204,64,0.1);
+}
+
+.btn:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 2px 8px rgba(46,204,64,0.15);
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+}
+
+.form-footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.form-footer a:hover {
+  text-decoration: underline;
+}
+
+.alert.alert-error { /* Assuming .alert and .alert-error are used for error messages */
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+  border-radius: 6px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  box-shadow: 0 1px 4px rgba(198,40,40,0.07);
+}
+
+/* Refund Page Specific Styles */
+.container h1 {
+  color: var(--primary-dark);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+}
+
+.refund-form {
+  background: var(--surface);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  max-width: 600px; /* Adjusted for a slightly wider form */
+  margin: 2rem auto; /* Centered with some margin */
+}
+
+/* Re-using .form-group, .form-label, .form-input styles from login for consistency */
+/* No need to redefine them if they are globally applicable or already defined for .form-container */
+
+.refund-form textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 1rem;
+  color: var(--text);
+  background-color: var(--background);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  min-height: 100px; /* Specific for textarea */
+  resize: vertical; /* Allow vertical resizing */
+}
+
+.refund-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(46, 204, 64, 0.2);
+}
+
+.refund-form input[type="file"] {
+  width: 100%;
+  padding: 0.6rem 0rem; /* Adjusted padding for file input */
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+/* Custom styling for file input button if desired, browser defaults are often tricky */
+.refund-form input[type="file"]::file-selector-button {
+  background: var(--accent);
+  color: var(--primary-dark);
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-right: 1rem;
+  font-weight: 500;
+}
+
+.refund-form input[type="file"]::file-selector-button:hover {
+  background: var(--primary-dark);
+  color: var(--surface);
+}
+
+.submit-btn {
+  /* Re-using .btn styles for consistency */
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.9rem 1.8rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  text-align: center;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(46,204,64,0.1);
+  margin-top: 1rem; /* Added margin-top */
+}
+
+.submit-btn:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 2px 8px rgba(46,204,64,0.15);
+}
+
+.success-message {
+    background-color: var(--accent);
+    color: var(--primary-dark);
+    border: 1px solid var(--primary);
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.05rem;
+    box-shadow: var(--shadow);
+}
+
+/* Checkout Page Styles */
+.checkout-container {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  margin-top: 2rem;
+}
+
+.checkout-container h1 {
+  color: var(--primary-dark);
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 2.4rem;
+}
+
+.cart-table {
+  margin-bottom: 2.5rem;
+  overflow-x: auto; /* For responsiveness on smaller screens */
+}
+
+.cart-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-table th,
+.cart-table td {
+  padding: 1rem 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.cart-table th {
+  background-color: var(--accent);
+  color: var(--primary-dark);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.cart-table tbody tr:nth-child(even) {
+  background-color: var(--background);
+}
+
+.cart-table tbody tr:hover {
+  background-color: #e8f5e9;
+}
+
+.cart-table td {
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.cart-table .item-price,
+.cart-table .item-total {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.cart-table .quantity-input {
+  width: 70px; /* Slightly wider for better usability */
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 1rem;
+  text-align: center;
+  background-color: var(--surface); /* Match surface for inputs */
+}
+
+.cart-table .quantity-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(46, 204, 64, 0.15);
+}
+
+.btn-small.btn-danger.remove-item {
+  background-color: #e74c3c; /* A distinct red for remove */
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-small.btn-danger.remove-item:hover {
+  background-color: #c0392b; /* Darker red on hover */
+}
+
+.no-items td {
+  text-align: center !important; /* Ensure text is centered */
+  padding: 2rem 1rem !important;
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+.no-items a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.no-items a:hover {
+  text-decoration: underline;
+}
+
+.checkout-summary {
+  background-color: var(--background);
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+  font-size: 1.05rem;
+  color: var(--text-light);
+}
+
+.summary-row span:last-child {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.summary-row.total {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--primary-dark);
+  border-top: 2px solid var(--accent);
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+}
+
+.summary-row.total span:last-child {
+  color: var(--primary-dark);
+}
+
+.btn-large {
+  /* Re-using .btn styles and making it larger */
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 1rem 2rem; /* Larger padding */
+  cursor: pointer;
+  font-size: 1.2rem; /* Larger font size */
+  font-weight: 600;
+  display: block;
+  width: 100%;
+  text-align: center;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(46,204,64,0.1);
+  margin-top: 1rem;
+}
+
+.btn-large:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 2px 8px rgba(46,204,64,0.15);
+}
+
+/* Ensure error messages are styled if not already covered by a general .error-message class */
+.checkout-container .error-message {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+  border-radius: 6px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  box-shadow: 0 1px 4px rgba(198,40,40,0.07);
+  text-align: center;
+}
+
+/* Delivery Details Page Styles */
+.delivery-page {
+  background-color: var(--surface);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  max-width: 800px; /* Adjust as needed */
+  margin: 40px auto; /* Centering the box */
+}
+
+.delivery-page h1 {
+  color: var(--primary-dark);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.order-summary {
+  background-color: #f9f9f9; /* Lighter than surface for contrast */
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 30px;
+  border: 1px solid var(--border);
+}
+
+.order-summary h2 {
+  color: var(--primary);
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.order-summary p {
+  margin-bottom: 8px;
+  font-size: 1em;
+  color: var(--text);
+}
+
+.order-summary p strong {
+  color: var(--text-light);
+}
+
+.delivery-form .form-group {
+  margin-bottom: 20px;
+}
+
+.delivery-form .form-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-light);
+  font-weight: bold;
+}
+
+.delivery-form .form-input,
+.delivery-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: var(--text);
+}
+
+.delivery-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.delivery-form .form-input:focus,
+.delivery-form textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(56, 176, 0, 0.2); /* Focus ring with primary color */
+}
+
+.delivery-form .submit-button { /* Assuming a general .btn class is already styled */
+  background-color: var(--primary);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+  display: block; /* Make button full width or adjust as needed */
+  width: 100%;
+  margin-top: 10px;
+}
+
+.delivery-form .submit-button:hover {
+  background-color: var(--primary-dark);
+}
+
+.delivery-page {
+  background: var(--surface);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  max-width: 700px; /* Adjusted for a potentially wider layout with summary */
+  margin: 2.5rem auto;
+}
+
+.delivery-page h1 {
+  color: var(--primary-dark);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+}
+
+.order-summary {
+  background-color: var(--background);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border);
+}
+
+.order-summary h2 {
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 0.5rem;
+}
+
+.order-summary p {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.order-summary p strong {
+  color: var(--text);
+  margin-right: 0.5rem;
+}
+
+.delivery-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.delivery-form .form-label,
+.delivery-form label[for="orderId"],
+.delivery-form label[for="name"],
+.delivery-form label[for="phone"],
+.delivery-form label[for="address"] {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--text-light);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.delivery-form .form-input,
+.delivery-form input[type="text"],
+.delivery-form input[type="tel"],
+.delivery-form textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 1rem;
+  color: var(--text);
+  background-color: var(--background);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.delivery-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.delivery-form .form-input:focus,
+.delivery-form input[type="text"]:focus,
+.delivery-form input[type="tel"]:focus,
+.delivery-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(56, 176, 0, 0.2); /* Using the new primary color for shadow */
+}
+
+.delivery-form input[readonly].form-input {
+  background-color: #e9ecef; /* Slightly different background for readonly inputs */
+  cursor: not-allowed;
+}
+
+.delivery-form .submit-button {
+  /* Re-using .btn styles for consistency */
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.9rem 1.8rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  text-align: center;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(56, 176, 0, 0.1);
+  margin-top: 1.5rem;
+}
+
+.delivery-form .submit-button:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 2px 8px rgba(0, 100, 0, 0.15);
+}
+
+/* Payment Page Specific Styles (similar to Delivery Details) */
+.payment-container {
+  background: var(--surface);
+  padding: 2.5rem; /* Consistent with delivery-page */
+  border-radius: 12px; /* Consistent with delivery-page */
+  box-shadow: var(--shadow); /* Consistent with delivery-page */
+  max-width: 700px; /* Consistent with delivery-page */
+  margin: 2.5rem auto; /* Consistent with delivery-page */
+}
+
+.payment-container h1.payment-title { /* Scoped to payment-container and using existing class */
+  color: var(--primary-dark);
+  text-align: center;
+  margin-bottom: 2rem; /* Consistent with delivery-page h1 */
+  font-size: 2.2rem; /* Consistent with delivery-page h1 */
+}
+
+/* Styles for the order summary box within the payment page */
+.payment-container .order-summary { /* Scoped to payment-container */
+  background-color: var(--background); /* Consistent with delivery-page .order-summary */
+  padding: 1.5rem; /* Consistent with delivery-page .order-summary */
+  border-radius: 8px; /* Consistent with delivery-page .order-summary */
+  margin-bottom: 2rem; /* Consistent with delivery-page .order-summary */
+  border: 1px solid var(--border); /* Consistent with delivery-page .order-summary */
+}
+
+.payment-container .order-summary h2 {
+  color: var(--primary-dark); /* Consistent with delivery-page .order-summary h2 */
+  margin-bottom: 1rem; /* Consistent with delivery-page .order-summary h2 */
+  font-size: 1.5rem; /* Consistent with delivery-page .order-summary h2 */
+  border-bottom: 1px solid var(--accent); /* Consistent with delivery-page .order-summary h2 */
+  padding-bottom: 0.5rem; /* Consistent with delivery-page .order-summary h2 */
+  margin-top: 0;
+}
+
+.payment-container .order-summary p {
+  font-size: 1.05rem; /* Consistent with delivery-page .order-summary p */
+  color: var(--text-light); /* Consistent with delivery-page .order-summary p */
+  margin-bottom: 0.5rem; /* Consistent with delivery-page .order-summary p */
+}
+
+.payment-container .order-summary p strong {
+  color: var(--text); /* Consistent with delivery-page .order-summary p strong */
+  margin-right: 0.5rem;
+}
+
+/* General form styling within payment-container */
+.payment-container .form-group {
+  margin-bottom: 1.5rem; /* Consistent with delivery-form .form-group */
+}
+
+.payment-container .form-label { /* Matches label elements in payment.jsp */
+  display: block;
+  margin-bottom: 0.6rem; /* Consistent with delivery-form .form-label */
+  color: var(--text-light); /* Consistent with delivery-form .form-label */
+  font-weight: 500; /* Consistent with delivery-form .form-label */
+  font-size: 1rem; /* Consistent with delivery-form .form-label */
+}
+
+.payment-container .form-input { /* Matches input.form-input in payment.jsp */
+  width: 100%;
+  padding: 0.8rem 1rem; /* Consistent with delivery-form .form-input */
+  border: 1px solid var(--border); /* Consistent with delivery-form .form-input */
+  border-radius: 6px; /* Consistent with delivery-form .form-input */
+  font-size: 1rem; /* Consistent with delivery-form .form-input */
+  color: var(--text); /* Consistent with delivery-form .form-input */
+  background-color: var(--background); /* Consistent with delivery-form .form-input */
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.payment-container .form-input:focus { /* Targets .form-input which is on text and password inputs */
+  outline: none;
+  border-color: var(--primary); /* Consistent with delivery-form .form-input:focus */
+  box-shadow: 0 0 0 3px rgba(56, 176, 0, 0.2); /* Consistent with delivery-form .form-input:focus */
+}
+
+.payment-container .form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.payment-container .form-row .form-group {
+    flex: 1;
+}
+
+.payment-container .submit-button { /* Targets button.submit-button in payment.jsp */
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.9rem 1.8rem; /* Consistent with delivery-form .submit-button */
+  cursor: pointer;
+  font-size: 1.1rem; /* Consistent with delivery-form .submit-button */
+  font-weight: 600; 
+  display: block;
+  width: 100%;
+  text-align: center;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(56, 176, 0, 0.1); 
+  margin-top: 1.5rem; 
+  text-transform: uppercase; 
+  letter-spacing: 0.5px; 
+}
+
+.payment-container .submit-button:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 2px 8px rgba(0, 100, 0, 0.15); /* Consistent with delivery-form .submit-button:hover */
+}
+
+.payment-container .note {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #e9f7ef; /* Light green background */
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.95em;
+    color: var(--primary-dark);
+}
+
+.payment-container .note p {
+    margin: 0;
+}
+
+.payment-container .error-message { /* From payment.jsp */
+    background-color: #ffebee; /* Standard error background */
+    color: #c62828; /* Standard error text color */
+    padding: 1rem 1.5rem;
+    margin-bottom: 20px;
+    border: 1px solid #ef9a9a; /* Standard error border */
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1.05rem; /* Consistent with general .error-message */
+}
+
+/* Confirmation Page Specific Styles */
+.confirmation-container {
+    background: var(--surface);
+    padding: 2.5rem 3rem; /* Slightly more padding for a spacious feel */
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    max-width: 750px; /* A bit wider for confirmation details */
+    margin: 2.5rem auto;
+    text-align: center; /* Center align content within the container */
+}
+
+.confirmation-container .success-icon {
+    font-size: 3.5rem; /* Large checkmark */
+    color: var(--primary);
+    margin-bottom: 1rem;
+    line-height: 1; /* Ensure icon aligns well */
+}
+
+.confirmation-container .success-title {
+    color: var(--primary-dark);
+    font-size: 2.4rem; /* Prominent title */
+    margin-bottom: 0.75rem;
+}
+
+.confirmation-container > p { /* Direct child paragraphs */
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    max-width: 90%; /* Prevent text from being too wide */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.confirmation-container .order-details {
+    background-color: var(--background);
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    margin-top: 1rem; /* Space above order details */
+    margin-bottom: 2rem;
+    border: 1px solid var(--border);
+    text-align: left; /* Align text to the left within this box */
+}
+
+.confirmation-container .order-details h2 {
+    color: var(--primary-dark);
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 0.6rem;
+}
+
+.confirmation-container .order-details p {
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.confirmation-container .order-details p strong {
+    color: var(--text-light);
+    margin-right: 8px;
+    font-weight: 600;
+}
+
+.confirmation-container .order-status-paid { /* Already defined, but ensure it works here */
+    color: var(--primary);
+    font-weight: bold;
+    background-color: #e9f7ef; /* Light green background for emphasis */
+    padding: 0.2em 0.5em;
+    border-radius: 4px;
+}
+
+.confirmation-container .btn-container {
+    margin-top: 2rem;
+}
+
+.confirmation-container .btn {
+    /* Uses global .btn styles, ensure it's suitable or override */
+    padding: 0.9rem 2.5rem; /* Slightly larger padding for a primary action */
+    font-size: 1.15rem;
+    font-weight: 600;
+    /* No width: 100% unless desired, let it size by content or set max-width */
+}
+
+/* Order Status Page Styles */
+.order-status-page {
+    background: var(--surface);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-top: 2rem;
+}
+
+.page-title {
+    color: var(--primary-dark);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+}
+
+/* Enhancements for .order-table (some might be already defined but ensuring consistency) */
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    font-size: 1rem; /* Base font size for table content */
+}
+
+.order-table th,
+.order-table td {
+    padding: 0.9rem 1.2rem; /* Adjusted padding for a tighter look */
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle; /* Ensure vertical alignment */
+}
+
+.order-table th {
+    background-color: var(--primary); /* Changed to primary for more emphasis */
+    color: #fff; /* White text on primary background */
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-transform: uppercase; /* Uppercase headers for a professional look */
+    letter-spacing: 0.5px;
+}
+
+.order-table tbody tr:nth-child(even) {
+    background-color: var(--background);
+}
+
+.order-table tbody tr:hover {
+    background-color: #e0f2e0; /* Lighter green for hover, adjust as needed */
+}
+
+.order-table td {
+    color: var(--text-light);
+}
+
+.order-table td:first-child {
+    font-weight: 500;
+    color: var(--text); /* Order ID more prominent */
+}
+
+/* For responsive tables if content is too wide */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
+}
+
+/* Styles for trackDelivery.jsp */
+.track-delivery-page {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+.track-delivery-page .page-title {
+    color: var(--primary-dark);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.track-delivery-page .table-responsive {
+    overflow-x: auto;
+}
+
+.track-delivery-page .order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.track-delivery-page .order-table th,
+.track-delivery-page .order-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.track-delivery-page .order-table th {
+    background-color: var(--primary);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.track-delivery-page .order-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.track-delivery-page .order-table tbody tr:hover {
+    background-color: var(--accent-light);
+    cursor: pointer;
+}
+
+.status-pending {
+    color: #e67e22; /* Orange for pending */
+    font-weight: bold;
+}
+
+.status-shipped, .status-out_for_delivery {
+    color: #3498db; /* Blue for shipped/out for delivery */
+    font-weight: bold;
+}
+
+.status-delivered {
+    color: var(--primary); /* Green for delivered */
+    font-weight: bold;
+}
+
+.status-cancelled, .status-returned {
+    color: #e74c3c; /* Red for cancelled/returned */
+    font-weight: bold;
+}
+
+/* Ensure .delivery-grid and .delivery-section don't add conflicting styles if they exist elsewhere */
+.delivery-grid {
+    /* Styles specific to this page if needed, or remove if generic */
+}
+
+.delivery-section {
+    /* Styles specific to this page if needed, or remove if generic */
+}
+
+/* Profile Page (user/profile.jsp) Styles */
+.profile-page {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+.profile-page .page-title {
+    color: var(--primary-dark);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.profile-page .table-responsive {
+    overflow-x: auto;
+}
+
+/* Reusing .order-table styles for .user-table */
+.profile-page .user-table th,
+.profile-page .user-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.profile-page .user-table th {
+    background-color: var(--primary);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.profile-page .user-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.profile-page .user-table tbody tr:hover {
+    background-color: var(--accent-light);
+}
+
+.profile-page .user-table .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    min-width: 100px; /* Ensure buttons have a decent width */
+}
+
+.profile-page .user-table .btn-yes {
+    background-color: var(--primary);
+    color: white;
+    border: 1px solid var(--primary-dark);
+}
+
+.profile-page .user-table .btn-yes:hover {
+    background-color: var(--primary-dark);
+}
+
+.profile-page .user-table .btn-no {
+    background-color: #e74c3c; /* Red for "Set to no" */
+    color: white;
+    border: 1px solid #c0392b;
+}
+
+.profile-page .user-table .btn-no:hover {
+    background-color: #c0392b;
+}
+
+.status-yes {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.status-no {
+    color: #e74c3c; /* Red for no */
+    font-weight: bold;
+}
+
+/* Product List Page (product/productList.jsp) Styles */
+.product-list-page {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+.product-list-page .page-title {
+    color: var(--primary-dark);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.product-list-page .table-responsive {
+    overflow-x: auto;
+}
+
+/* Utilizing .order-table styles for consistency */
+.product-list-page .order-table th,
+.product-list-page .order-table td {
+    border: 1px solid #ddd;
+    padding: 14px 18px; /* Increased padding */
+    text-align: left;
+    white-space: nowrap;
+    font-size: 1.05rem; /* Increased font size for table data */
+}
+
+.product-list-page .order-table th {
+    background-color: var(--primary);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 1.1rem; /* Slightly larger font for headers */
+}
+
+.product-list-page .order-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.product-list-page .order-table tbody tr:hover {
+    background-color: var(--accent-light);
+}
+
+/* Dashboard Page (dashboard/dashboard.jsp) Styles */
+.dashboard-page {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.dashboard-page .page-title {
+    color: var(--primary-dark);
+    text-align: center;
+    margin-bottom: 2.5rem; /* Increased margin for more space */
+    font-size: 2.8rem; /* Larger title for dashboard */
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 2rem; /* Increased gap between cards */
+    margin-top: 1rem;
+}
+
+.dashboard-card {
+    background-color: #fff;
+    padding: 2rem; /* Increased padding inside cards */
+    border-radius: 10px; /* Slightly more rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Softer, more pronounced shadow */
+    text-align: center; /* Center text inside cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-card h3 {
+    color: var(--primary-dark);
+    font-size: 1.5rem; /* Larger heading for card titles */
+    margin-bottom: 1rem;
+}
+
+.dashboard-card .highlight {
+    font-size: 2.2rem; /* Larger font for the highlighted data */
+    color: var(--primary);
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+/* Delivery Management Page (delivery/delivery.jsp) Styles */
+.delivery-management-page {
+    max-width: 1400px; /* Wider for management tables */
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+.delivery-management-page .page-title {
+    color: var(--primary-dark);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.delivery-management-page .section-title {
+    color: var(--primary-dark);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.5rem;
+}
+
+.delivery-management-page .table-responsive {
+    overflow-x: auto;
+}
+
+.delivery-management-page .order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.delivery-management-page .order-table th,
+.delivery-management-page .order-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+    vertical-align: middle; /* Ensure content is vertically centered */
+}
+
+.delivery-management-page .order-table th {
+    background-color: var(--primary);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.delivery-management-page .order-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.delivery-management-page .order-table tbody tr:hover {
+    background-color: var(--accent-light);
+}
+
+/* Styles for the status update form elements */
+.status-update-form {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between select and button */
+}
+
+.form-select-small {
+    padding: 0.5rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 0.9rem;
+    min-width: 150px; /* Ensure select is wide enough */
+}
+
+.btn-small {
+    padding: 0.5rem 1rem; /* Standard small button padding */
+    font-size: 0.9rem;
+}
+
+/* Status text styling (reusing from trackDelivery.jsp if applicable or define here) */
+.status-new { color: #5bc0de; font-weight: bold; }
+.status-processing { color: #f0ad4e; font-weight: bold; }
+.status-shipped { color: #337ab7; font-weight: bold; }
+.status-out_for_delivery { color: #29b6f6; font-weight: bold; } /* Light blue */
+.status-delivered { color: var(--primary); font-weight: bold; }
+.status-complete { color: var(--primary-dark); font-weight: bold; } /* Darker green for complete */
+.status-cancelled { color: #d9534f; font-weight: bold; }
+
+/* Add Item Page (product/addItem.jsp) Styles */
+.add-item-page {
+    max-width: 800px; /* Adjusted width for a form page */
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.add-item-page .page-title {
+    color: var(--primary-dark);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.add-item-form-container {
+    background-color: #fff;
+    padding: 2.5rem; /* Increased padding */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--shadow); /* Enhanced shadow */
+}
+
+.add-item-form-container .form-group {
+    margin-bottom: 1.8rem; /* Increased bottom margin */
+}
+
+.add-item-form-container .form-label {
+    display: block;
+    margin-bottom: 0.8rem; /* Increased margin */
+    color: var(--text);
+    font-weight: 500;
+    font-size: 1.05rem; /* Slightly larger label */
+}
+
+.add-item-form-container .form-input {
+    width: 100%;
+    padding: 0.9rem 1.1rem; /* Increased padding */
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 1rem;
+    color: var(--text);
+    background-color: var(--background);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.add-item-form-container .form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(56, 176, 0, 0.25); /* Adjusted shadow on focus */
+}
+
+/* For Price and Quantity row */
+.add-item-form-container .form-row {
+    display: flex;
+    gap: 1.5rem; /* Spacing between Price and Quantity */
+}
+
+.add-item-form-container .form-row .form-group {
+    flex: 1; /* Make them share space equally */
+}
+
+.add-item-form-container .submit-button {
+    /* Using global .btn and .btn-primary, but can add specifics */
+    width: 100%;
+    padding: 0.9rem 1.8rem;
+    font-size: 1.15rem; /* Larger font for button */
+    margin-top: 1rem; /* Space above the button */
+}
+
+/* Alert Message Styling (if not already globally defined) */
+.alert {
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.alert-error {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
